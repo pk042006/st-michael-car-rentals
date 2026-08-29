@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0a0a0a;
+  --color-accent: #c9a84c;
+  --color-accent-light: #d4af37;
+  --font-family-heading: 'Playfair Display', Georgia, serif;
+  --font-family-body: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-family-body); background-color: #ffffff; color: #0a0a0a; }
+  h1, h2, h3, h4 { font-family: var(--font-family-heading); }
+}
+
+@layer utilities {
+  .text-accent { color: #c9a84c; }
+  .bg-accent { background-color: #c9a84c; }
+  .border-accent { border-color: #c9a84c; }
+  .glass { background: rgba(255,255,255,0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.2); }
+  .glass-dark { background: rgba(10,10,10,0.7); backdrop-filter: blur(12px); border: 1px solid rgba(201,168,76,0.2); }
+  .gold-gradient { background: linear-gradient(135deg, #c9a84c 0%, #d4af37 50%, #f0e68c 100%); }
+  .dark-gradient { background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); }
+  .card-hover { transition: all 0.3s ease; }
+  .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+  .animate-fade-in { animation: fadeIn 0.6s ease forwards; }
+  .animate-slide-up { animation: slideUp 0.6s ease forwards; }
+  .skeleton { background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; }
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #c9a84c; border-radius: 3px; }
